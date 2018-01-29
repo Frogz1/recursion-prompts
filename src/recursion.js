@@ -63,6 +63,7 @@ arraySum([1,[2,3],[[4]],5]);
 
 // 4. Check if a number is even.
 var isEven = function(n) {
+    
 };
 
 // 5. Sum all integers below a given integer.
@@ -74,7 +75,19 @@ var sumBelow = function(n) {
 // 6. Get the integers within a range (x, y).
 // range(2,9); // [3,4,5,6,7,8]
 var range = function(x, y) {
+    //I: begin int, end int
+    //O: array containing begin+1 and end-1
+    //x - y === 1 return result
+
+    if (y - x === 2) {
+        return [x + 1];
+    } else {
+        var list = range(x, y -1);
+        list.push(y - 1);
+        return list;
+    }   
 };
+range(2, 5);
 
 // 7. Compute the exponent of a number.
 // The exponent of a number says how many times the base number is used as a factor.
@@ -82,6 +95,12 @@ var range = function(x, y) {
 // exponent(4,3); // 64
 // https://www.khanacademy.org/computing/computer-science/algorithms/recursive-algorithms/a/computing-powers-of-a-number
 var exponent = function(base, exp) {
+
+    if (exp === 0 && base^exp === 1) {
+        return 1;
+    } 
+    return base * exponent(base, exp - 1);
+
 };
 
 // 8. Determine if a number is a power of two.
@@ -89,6 +108,7 @@ var exponent = function(base, exp) {
 // powerOfTwo(16); // true
 // powerOfTwo(10); // false
 var powerOfTwo = function(n) {
+    
 };
 
 // 9. Write a function that reverses a string.
@@ -105,6 +125,10 @@ var palindrome = function(string) {
 // modulo(17,5) // 2
 // modulo(22,6) // 4
 var modulo = function(x, y) {
+    if (x - y < y) {
+        return x - y;
+    }
+    return modulo((x-y), y);
 };
 
 // 12. Write a function that multiplies two numbers without using the * operator or
