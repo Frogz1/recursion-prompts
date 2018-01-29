@@ -143,9 +143,28 @@ var multiply = function(x, y) {
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods.
 var divide = function(x, y) {
-    if ()
+   var counter = 0;
+   var recurse = function(x, y) {
+    if (y * x) {
+        return counter;
+    }
+    counter++
+   return y *= recurse(x-y, y);
+
+   }
+    
+   
+    
+    
+    recurse(x, y)
+    return counter;
 
 };
+
+var division = function (x, y) {
+    
+
+}
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
 // integers is the greatest integer that divides both x and y with no remainder.
@@ -153,6 +172,18 @@ var divide = function(x, y) {
 // http://www.cse.wustl.edu/~kjg/cse131/Notes/Recursion/recursion.html
 // https://www.khanacademy.org/computing/computer-science/cryptography/modarithmetic/a/the-euclidean-algorithm
 var gcd = function(x, y) {
+    var qt = 0;
+    var recurse = function(x, y) {
+        if (x / qt === 0 && y / qt === 0) {
+            return qt;
+        }
+          return qt = recurse(y, y % x);
+        };
+    
+  
+    recurse(x, y);
+    return qt;
+    
 };
 
 // 15. Write a function that compares each character of two strings and returns true if
@@ -160,6 +191,20 @@ var gcd = function(x, y) {
 // compareStr('house', 'houses') // false
 // compareStr('tomato', 'tomato') // true
 var compareStr = function(str1, str2) {
+    //I: two strings
+    //O: Boolean if both strings are identical
+    if (str1.length !== str2.length) {
+        return false;
+    }
+    if (str1.length === 1 && str2.length === 1) {
+        return str1[0] === str1[0];
+    }
+    if (str1[0] === str2[0]) {
+        str1 = str1.substr(1, str1.length);
+        str2 = str2.substr(1, str2.length);
+        return compareStr(str1, str2);
+    }
+    
 };
 
 // 16. Write a function that accepts a string and creates an array where each letter
