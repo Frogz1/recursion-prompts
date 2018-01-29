@@ -135,7 +135,7 @@ var modulo = function(x, y) {
 // Math methods.
 var multiply = function(x, y) {
     if (y === 1) {
-        return x * y;
+        return x;
     }
     return x += multiply(x, y - 1);
 };
@@ -143,6 +143,8 @@ var multiply = function(x, y) {
 // 13. Write a function that divides two numbers without using the / operator or
 // Math methods.
 var divide = function(x, y) {
+    if ()
+
 };
 
 // 14. Find the greatest common divisor (gcd) of two positive numbers. The GCD of two
